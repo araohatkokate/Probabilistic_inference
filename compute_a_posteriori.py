@@ -55,10 +55,9 @@ def main():
             f.write(f"After Observation {i} = {observation}:\n")
             for hypothesis, probability in posterior_probabilities.items():
                 f.write(f"P({hypothesis} | Q) = {probability:.5f}\n")
-            next_observation_prob_C, next_observation_prob_L = compute_next_observation_prob(observation_sequence, observation)
+            next_observation_prob_C, next_observation_prob_L = compute_next_observation_prob(observation_sequence[:i], observation)
             f.write(f"Probability that the next candy we pick will be C, given Q: {next_observation_prob_C:.5f}\n")
             f.write(f"Probability that the next candy we pick will be L, given Q: {next_observation_prob_L:.5f}\n\n")
 
 if __name__ == "__main__":
     main()
-
