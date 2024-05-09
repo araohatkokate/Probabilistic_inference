@@ -27,8 +27,8 @@ def update_posterior(posterior, observation):
 
 # Function to calculate the probability of the next observation
 def next_observation_probability(posterior, observation):
-    prob_C = sum(posterior[hypothesis] * transition_probs[hypothesis][observation] for hypothesis in posterior)
-    prob_L = sum(posterior[hypothesis] * (1 - transition_probs[hypothesis][observation]) for hypothesis in posterior)
+    prob_C = sum(posterior[hypothesis] * transition_probs[hypothesis]['C'] for hypothesis in posterior)
+    prob_L = sum(posterior[hypothesis] * transition_probs[hypothesis]['L'] for hypothesis in posterior)
     return prob_C, prob_L
 
 # Function to compute the posterior probabilities and next observation probabilities
